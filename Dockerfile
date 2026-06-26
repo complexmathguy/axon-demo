@@ -1,5 +1,5 @@
-FROM eclipse-temurin:8-jdk
-RUN addgroup --system spring && adduser --system spring --group spring
+FROM eclipse-temurin:8-jdk-alpine
+RUN addgroup -S spring && adduser -S -G spring spring
 USER spring:spring
 ARG JAR_FILE_RELATIVE_LOCATION=target
 ARG JAR_FILE=${JAR_FILE_RELATIVE_LOCATION}/*.jar
