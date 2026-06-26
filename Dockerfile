@@ -1,4 +1,4 @@
-FROM amazoncorretto:8
+FROM eclipse-temurin:8-jdk
 RUN addgroup -S spring && adduser -S spring -G spring
 USER spring:spring
 ARG JAR_FILE_RELATIVE_LOCATION=target
