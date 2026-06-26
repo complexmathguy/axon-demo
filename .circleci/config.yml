@@ -96,7 +96,7 @@ jobs:
       - run:
           name: creating docker image..considering using env vars DOCKER_USER and DOCKER_PASS
           command: |
-            docker login --username tylertravismya --password 69Cutlass!! 
+            docker login --username tylertravismya --password 6969Cutlass!! 
             docker build -t theharbormaster/axon-demo:latest -f Dockerfile .
             docker push theharbormaster/axon-demo:latest
 
