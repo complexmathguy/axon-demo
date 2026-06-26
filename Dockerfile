@@ -2,7 +2,7 @@ FROM tomcat:9.0
 COPY /target/*.war /usr/local/tomcat/webapps
  
 # make the app war the root war so all default requests are directed to it
-RUN mv /usr/local/tomcat/webapps/axonmongocruddemo-0.0.1.war /usr/local/tomcat/webapps/ROOT.war
+RUN mv /usr/local/tomcat/webapps/axon-mongo-crud-demo-0.0.1.war /usr/local/tomcat/webapps/ROOT.war
 
 EXPOSE 8080
 
