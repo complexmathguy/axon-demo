@@ -1,12 +1,9 @@
-FROM tomcat:9.0
-COPY /target/*.war /usr/local/tomcat/webapps
-
-RUN ls /usr/local/tomcat/webapps
-
-# make the app war the root war so all default requests are directed to it
-RUN mv /usr/local/tomcat/webapps/axon-mongo-crud-demo.war /usr/local/tomcat/webapps/ROOT.war
-
+FROM openjdk:8-jdk-alpine
+RUN addgroup -S spring && adduser -S spring -G spring
+USER spring:spring
+ARG JAR_FILE_RELATIVE_LOCATION=target
+ARG JAR_FILE=${JAR_FILE_RELATIVE_LOCATION}/*.jar
+COPY ${JAR_FILE} app.jar
 EXPOSE 8080
+ENTRYPOINT ["java","-jar","/app.jar"]
 
-# run tomcat
-CMD ["/usr/local/tomcat/bin/catalina.sh", "run"]
