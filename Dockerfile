@@ -1,7 +1,7 @@
 FROM tomcat:9.0
 COPY /target/*.war /usr/local/tomcat/webapps
 
-RUN find /usr/local/tomcat/webapps -maxdepth 2 -print
+RUN ls /usr/local/tomcat/webapps
 
 # make the app war the root war so all default requests are directed to it
 RUN mv /usr/local/tomcat/webapps/axon-mongo-crud-demo.war /usr/local/tomcat/webapps/ROOT.war
